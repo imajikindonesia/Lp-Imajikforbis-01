@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imajik For Business - AI Visual Training For Corporate</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico">
+
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!--===== META PIXEL AKTIF =====-->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '517991158551582');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=517991158551582&ev=PageView&noscript=1"
+    /></noscript>
+    <!--===== AKHIR META PIXEL =====-->
+
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --primary: #302096;
+            --secondary: #5D9AD2;
+            --bg-color: #F6F8FC;
+            --text-main: #161A2B;
+            --white: #FFFFFF;
+        }
+
+        /* --- GLOBAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 15px 30px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            min-width: 48px;
+            min-height: 48px;
+            text-align: center;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-cta:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            box-shadow: 0 8px 20px rgba(48, 32, 150, 0.2);
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            max-width: 150px;
+        }
+
+        /* --- HERO SECTION (ATTENTION) --- */
+        .hero {
+            padding: 80px 0;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3/2; /* Mengunci rasio ruang slider */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        /* --- CLIENT LOGOS SECTION --- */
+        .client-logos {
+            background-color: var(--white);
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .client-logos p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .marquee-wrapper {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .marquee-content {
+            display: flex;
+            width: max-content;
+            animation: scroll-marquee 25s linear infinite;
+        }
+
+        .marquee-group {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding-right: 40px; /* Jarak untuk menyambung looping */
+        }
+
+        .marquee-group img {
+            height: 40px; 
+            opacity: 0.6;
+            transition: opacity 0.3s ease, filter 0.3s ease;
+            filter: grayscale(100%); 
+        }
+
+        .marquee-group img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        @keyframes scroll-marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- FEATURES SECTION (INTEREST) --- */
+        .features {
+            background-color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            color: #666;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: var(--bg-color);
+            padding: 30px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid var(--secondary);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* --- MENTOR SECTION (DARI REFERENSI) --- */
+        .mentors {
+            background-color: #071330; /* Warna gelap dari gambar referensi */
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .mentors .section-title {
+            color: var(--white);
+        }
+
+        .mentors .section-subtitle {
+            color: #A0ABC0;
+        }
+
+        .mentor-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .mentor-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: left;
+        }
+
+        .mentor-image {
+            width: 240px; /* Diperbesar signifikan agar muka trainer menonjol */
+            height: 240px; /* Diperbesar signifikan */
+            border-radius: 24px; /* Ujung tumpul, disesuaikan dengan ukuran yang lebih besar */
+            object-fit: cover;
+            margin: 0 auto 30px;
+            display: block;
+            border: 2px solid rgba(255, 255, 255, 0.1); 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Tambahan bayangan agar foto lebih elegan dan pop-out */
+        }
+
+        .mentor-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .mentor-title {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .mentor-card p {
+            font-size: 0.95rem;
+            color: #D1D5DB;
+            line-height: 1.7;
+        }
+
+        /* --- TARGET AUDIENCE (DARI REFERENSI) --- */
+        .target-audience {
+            background-color: #071330;
+            color: var(--white);
+            padding: 40px 0 80px;
+        }
+
+        .target-box {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .target-box h3 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .target-list {
+            list-style: none;
+        }
+
+        .target-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            color: #D1D5DB;
+        }
+
+        .target-list li::before {
+            content: '•';
+            color: var(--secondary);
+            position: absolute;
+            left: 10px;
+            font-size: 1.5rem;
+            top: -5px;
+        }
+        
+        /* --- PROGRAMS SECTION (DARI REFERENSI) --- */
+        .programs {
+            background-color: #040D21; /* Lebih gelap dari mentor */
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .programs .section-title {
+            color: var(--white);
+            margin-bottom: 50px;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .program-card {
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: left;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-card.recommended {
+            border-color: var(--secondary);
+        }
+
+        .badge-recommended {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background-color: #1A365D;
+            color: var(--secondary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid var(--secondary);
+        }
+
+        .program-tag {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .program-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .program-desc {
+            font-size: 0.9rem;
+            color: #A0ABC0;
+            margin-bottom: 25px;
+        }
+
+        .program-meta {
+            margin-bottom: 25px;
+        }
+
+        .meta-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #6B7280;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .meta-value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .program-features {
+            list-style: none;
+            margin-bottom: 30px;
+            flex-grow: 1; /* Push the rest to bottom */
+        }
+
+        .program-features li {
+            font-size: 0.9rem;
+            color: #D1D5DB;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .program-features li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .program-price-box {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .price-label {
+            font-size: 0.75rem;
+            color: #9CA3AF;
+        }
+
+        .price-amount {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            margin: 5px 0;
+        }
+        
+        .price-amount span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #9CA3AF;
+        }
+
+        .price-note {
+            font-size: 0.8rem;
+            color: #6B7280;
+        }
+
+        .bonus-note {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .program-card .btn-cta {
+            width: 100%;
+            background-color: transparent;
+            border-color: var(--secondary);
+            color: var(--white);
+        }
+
+        .program-card.recommended .btn-cta {
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+        
+        .program-card .btn-cta:hover {
+            background-color: var(--white);
+            color: var(--text-main);
+            border-color: var(--white);
+        }
+
+        /* --- POST TRAINING (DARI REFERENSI) --- */
+        .post-training {
+            background-color: #071330;
+            color: var(--white);
+            padding: 80px 0;
+        }
+        
+        .post-training .container {
+            max-width: 800px;
+        }
+
+        .post-training h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .post-training h2 span {
+            color: var(--secondary);
+        }
+
+        .post-training > p {
+            color: #A0ABC0;
+            margin-bottom: 40px;
+            font-size: 1.05rem;
+        }
+
+        .post-list {
+            margin-bottom: 40px;
+        }
+
+        .post-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .post-icon {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .post-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .post-text p {
+            color: #9CA3AF;
+            font-size: 0.95rem;
+        }
+
+        .post-training .btn-cta {
+            background-color: transparent;
+            border-color: rgba(255,255,255,0.3);
+        }
+        
+        .post-training .btn-cta:hover {
+            border-color: var(--secondary);
+            background-color: rgba(93, 154, 210, 0.1);
+            color: var(--white);
+        }
+
+        /* --- HASIL KARYA SECTION (BARU) --- */
+        .portfolio {
+            background-color: var(--bg-color);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item {
+            aspect-ratio: 9/16;
+            background-color: #ddd;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px;
+            text-align: left;
+        }
+
+        /* --- TESTIMONIAL SECTION (DESIRE) --- */
+        .testimonials {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        /* Modifikasi untuk Video Testimoni */
+        .testi-video-card {
+            background-color: var(--bg-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            aspect-ratio: 9/16; /* Rasio Shorts/Reels */
+            position: relative;
+        }
+
+        .testi-video-card iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* --- FINAL CTA SECTION (ACTION) --- */
+        .final-cta {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .final-cta .btn-cta {
+            background-color: var(--white);
+            color: var(--primary);
+            font-size: 1.2rem;
+            padding: 18px 40px;
+            border-color: var(--white);
+        }
+
+        .final-cta .btn-cta:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--text-main);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* --- MEDIA QUERIES (MOBILE RESPONSIVE) --- */
+        @media screen and (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 0;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .features-grid, .testi-grid, .mentor-grid, .program-grid, .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-grid {
+                 max-width: 320px; /* Lebar wajar untuk 1 kolom 9:16 di mobile */
+            }
+
+            .final-cta h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-content">
+            <img src="assets/logo.png" alt="Logo Imajik For Business" class="logo" onerror="this.src='https://placehold.co/150x50/302096/fff?text=IMAJIK'">
+            <a href="https://wa.me/6285187287500?text=Halo%2C%20saya%20tertarik%20program%20AI%20Training%20IMAJIK" class="btn-cta" onclick="fbq('track', 'Lead');">Konsultasi Sekarang</a>
+        </div>
+    </header>
+
+    <!-- ATTENTION: HERO SECTION -->
+    <section class="hero container">
+        <div class="hero-text">
+            <h1>Transformasi Visual Bisnis Anda dengan AI Canggih</h1>
+            <p>Tingkatkan produktivitas tim dan buat materi promosi setara agensi besar dalam hitungan menit. Pelatihan praktis khusus untuk tim dan eksekutif perusahaan Anda.</p>
+            <a href="https://wa.me/6285187287500?text=Halo%2C%20saya%20tertarik%20program%20AI%20Training%20IMAJIK" class="btn-cta" onclick="fbq('track', 'Lead');">Undang Kami ke Kantor Anda</a>
+        </div>
+        <div class="hero-image">
+            <img src="assets/hero-img-1.jpg" alt="Suasana Corporate Workshop 1" class="hero-slide active" onerror="this.src='https://placehold.co/600x400/eee/999?text=Slide+Hero+1'">
+            <img src="assets/hero-img-2.jpg" alt="Suasana Corporate Workshop 2" class="hero-slide" onerror="this.src='https://placehold.co/600x400/eee/999?text=Slide+Hero+2'">
+            <img src="assets/hero-img-3.jpg" alt="Suasana Corporate Workshop 3" class="hero-slide" onerror="this.src='https://placehold.co/600x400/eee/999?text=Slide+Hero+3'">
+            <img src="assets/hero-img-4.jpg" alt="Suasana Corporate Workshop 4" class="hero-slide" onerror="this.src='https://placehold.co/600x400/eee/999?text=Slide+Hero+4'">
+        </div>
+    </section>
+
+    <!-- CLIENT LOGOS SECTION (BARU) -->
+    <section class="client-logos">
+        <div class="container">
+            <p>Dipercaya oleh Perusahaan Terkemuka</p>
+        </div>
+        <div class="marquee-wrapper">
+            <div class="marquee-content">
+                <!-- Grup Pertama (9 Logo Asli) -->
+                <div class="marquee-group">
+                    <img src="assets/logo-client-1.png" alt="Client 1" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+1'">
+                    <img src="assets/logo-client-2.png" alt="Client 2" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+2'">
+                    <img src="assets/logo-client-3.png" alt="Client 3" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+3'">
+                    <img src="assets/logo-client-4.png" alt="Client 4" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+4'">
+                    <img src="assets/logo-client-5.png" alt="Client 5" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+5'">
+                    <img src="assets/logo-client-6.png" alt="Client 6" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+6'">
+                    <img src="assets/logo-client-7.png" alt="Client 7" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+7'">
+                    <img src="assets/logo-client-8.png" alt="Client 8" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+8'">
+                    <img src="assets/logo-client-9.png" alt="Client 9" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+9'">
+                </div>
+                <!-- Grup Kedua (Duplikat untuk ilusi gulir/slide tanpa batas) -->
+                <div class="marquee-group" aria-hidden="true">
+                    <img src="assets/logo-client-1.png" alt="Client 1" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+1'">
+                    <img src="assets/logo-client-2.png" alt="Client 2" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+2'">
+                    <img src="assets/logo-client-3.png" alt="Client 3" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+3'">
+                    <img src="assets/logo-client-4.png" alt="Client 4" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+4'">
+                    <img src="assets/logo-client-5.png" alt="Client 5" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+5'">
+                    <img src="assets/logo-client-6.png" alt="Client 6" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+6'">
+                    <img src="assets/logo-client-7.png" alt="Client 7" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+7'">
+                    <img src="assets/logo-client-8.png" alt="Client 8" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+8'">
+                    <img src="assets/logo-client-9.png" alt="Client 9" onerror="this.src='https://placehold.co/120x40/eee/999?text=Logo+Client+9'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HASIL KARYA TRAINING (BARU - 9:16) -->
+    <section class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Contoh Hasil Visual AI</h2>
+            <p class="section-subtitle">Dihasilkan oleh peserta training dalam hitungan menit menggunakan teknik yang diajarkan.</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <!-- Gunakan gambar rasio 9:16 (misal 1080x1920) -->
+                    <img src="assets/portfolio-1.jpg" alt="Hasil Visual 1" onerror="this.src='https://placehold.co/1080x1920/ccc/fff?text=Gambar+9:16'">
+                    <div class="portfolio-overlay">
+                        <h4>Campaign Produk</h4>
+                        <p style="font-size: 0.8rem; opacity: 0.8;">Dibuat dalam 15 menit</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="assets/portfolio-2.jpg" alt="Hasil Visual 2" onerror="this.src='https://placehold.co/1080x1920/ccc/fff?text=Gambar+9:16'">
+                    <div class="portfolio-overlay">
+                        <h4>Social Media Content</h4>
+                        <p style="font-size: 0.8rem; opacity: 0.8;">Disesuaikan Brand Guideline</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="assets/portfolio-3.jpg" alt="Hasil Visual 3" onerror="this.src='https://placehold.co/1080x1920/ccc/fff?text=Gambar+9:16'">
+                    <div class="portfolio-overlay">
+                        <h4>Konsep Storyboard</h4>
+                        <p style="font-size: 0.8rem; opacity: 0.8;">Cepat & Presisi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTEREST: FEATURES SECTION -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Mengapa Memilih Imajik For Business?</h2>
+            <p class="section-subtitle">Materi daging, relevan dengan brand, dan langsung bisa diaplikasikan oleh tim Anda hari itu juga.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="assets/feature-1.png" alt="Icon Prompting Cepat" onerror="this.src='https://placehold.co/80x80/eee/999?text=Icon'">
+                    <h3>Rahasia Prompting Cepat & Presisi</h3>
+                    <p>Pelajari trik mendapatkan hasil gambar dan video AI yang memukau tanpa harus trial-error berjam-jam.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="assets/feature-2.png" alt="Icon Integrasi Brand" onerror="this.src='https://placehold.co/80x80/eee/999?text=Icon'">
+                    <h3>Implementasi Key Brand identity</h3>
+                    <p>Training disesuaikan dengan pedoman visual (guideline) brand Anda. Bukan sekadar teori umum.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="assets/feature-3.png" alt="Icon Mentor Praktisi" onerror="this.src='https://placehold.co/80x80/eee/999?text=Icon'">
+                    <h3>Mentor Expert & Praktisi</h3>
+                    <p>Dibimbing langsung oleh praktisi AI Multimedia (Agus Wibowo) & AI Visual Director (Brillian Fairiandi).</p>
+                </div>
+            </div>
+            
+            <a href="https://wa.me/6285187287500?text=Halo%2C%20saya%20tertarik%20program%20AI%20Training%20IMAJIK" class="btn-cta" onclick="fbq('track', 'Lead');">Tanya Jadwal & Silabus Pelatihan</a>
+        </div>
+    </section>
+
+    <!-- MENTORS SECTION (DARI REFERENSI) -->
+    <section class="mentors">
+        <div class="container">
+            <h2 class="section-title">Belajar Bersama Praktisi Visual AI</h2>
+            <p class="section-subtitle" style="margin-bottom: 50px;">Dilatih langsung oleh expert yang berpengalaman mengimplementasikan creative technology di dunia nyata, bukan sekadar teori akademis.</p>
+            
+            <div class="mentor-grid">
+                <div class="mentor-card">
+                    <img src="assets/mentor-bf.jpg" alt="Foto Brillian Fairiandi" class="mentor-image" onerror="this.src='https://placehold.co/240x240/302096/fff?text=Foto+BF'">
+                    <h3>Brillian Fairiandi</h3>
+                    <span class="mentor-title">CEO IMAJIK &mdash; AI Visual Expert</span>
+                    <p>AI Visual Expert dan creative entrepreneur berfokus pada visual storytelling & AI-powered creativity. Dikenal sebagai AI educator dengan 144.000+ followers, rutin melatih tim korporat, pemerintahan, dan profesional.</p>
+                </div>
+                <div class="mentor-card">
+                    <img src="assets/mentor-aw.jpg" alt="Foto Agus Wibowo" class="mentor-image" onerror="this.src='https://placehold.co/240x240/302096/fff?text=Foto+AW'">
+                    <h3>Agus Wibowo</h3>
+                    <span class="mentor-title">CTO IMAJIK &mdash; AI Multimedia Corporate Trainer</span>
+                    <p>Digital learning specialist dengan pengalaman lebih dari 18 tahun di bidang creative technology dan digital education. Aktif berkolaborasi dalam ekosistem platform teknologi kreatif global.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TARGET AUDIENCE (DARI REFERENSI) -->
+    <section class="target-audience">
+        <div class="container">
+            <div class="target-box">
+                <h3>
+                    <!-- Ikon Check Circle -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    Program Ini Cocok untuk:
+                </h3>
+                <ul class="target-list">
+                    <li>Perusahaan yang ingin meningkatkan kemampuan AI tim.</li>
+                    <li>Marketing dan creative team yang membutuhkan produksi visual lebih cepat.</li>
+                    <li>Organisasi yang ingin membangun workflow AI terstruktur.</li>
+                    <li>Tim yang sudah mencoba AI, tetapi hasilnya belum konsisten.</li>
+                    <li>Perusahaan yang membutuhkan program sesuai kebutuhan internal.</li>
+                    <li>Institusi yang ingin memulai transformasi AI secara bertanggung jawab.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMS SECTION (DARI REFERENSI) -->
+    <section class="programs">
+        <div class="container">
+            <h2 class="section-title">Pilih Program Sesuai<br>Tahap Transformasi Tim</h2>
+            
+            <div class="program-grid">
+                <!-- Program 1 -->
+                <div class="program-card">
+                    <span class="program-tag">PROGRAM 1</span>
+                    <h3>AI Foundation for Everyone</h3>
+                    <p class="program-desc">Program dasar untuk membangun pemahaman fundamental mengenai Artificial Intelligence dan Visual Generative AI bagi seluruh tim.</p>
+                    
+                    <div class="program-meta">
+                        <span class="meta-label">DURASI</span>
+                        <div class="meta-value">1 Hari (2 Sesi, Total 6 Jam)</div>
+                        
+                        <span class="meta-label">COCOK UNTUK</span>
+                        <div class="meta-value">General employee, tim pemula AI, standarisasi dasar.</div>
+                    </div>
+
+                    <span class="meta-label">MATERI UTAMA</span>
+                    <ul class="program-features">
+                        <li>Dasar Artificial Intelligence & Landscape Tools</li>
+                        <li>Pengenalan Visual Generative AI</li>
+                        <li>Generative AI Workflow & Content Implementation</li>
+                    </ul>
+
+                    <div class="program-price-box">
+                        <div class="price-label">ESTIMASI INVESTASI</div>
+                        <div class="price-amount">Rp1.200.000 <span>/ peserta</span></div>
+                        <div class="price-note">Min. 20 peserta. Group bundle mulai Rp20.000.000</div>
+                        <div class="bonus-note">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                            Bonus: Free platform acc (30 users, 7 hari)
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/6285187287500?text=Halo%2C%20saya%20ingin%20konsultasi%20Program%20AI%20Foundation" class="btn-cta" onclick="fbq('track', 'Lead');">Konsultasikan Program Foundation</a>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="program-card recommended">
+                    <span class="badge-recommended">RECOMMENDED FOR BUSINESS</span>
+                    <span class="program-tag">PROGRAM 2</span>
+                    <h3>AI Visual Marketing & Transformation</h3>
+                    <p class="program-desc">Program strategis komprehensif mengintegrasikan AI ke dalam marketing strategy & visual production system.</p>
+                    
+                    <div class="program-meta">
+                        <span class="meta-label">DURASI</span>
+                        <div class="meta-value">2 Hari (4 Sesi, Total 12 Jam)</div>
+                        
+                        <span class="meta-label">HIGHLIGHT OUTCOME</span>
+                    </div>
+
+                    <ul class="program-features">
+                        <li>Standardized Prompt Framework & Tools Eval</li>
+                        <li>Scalable Workflow Design for Marketing</li>
+                        <li>Hands-on Visual Content Production</li>
+                    </ul>
+
+                    <div class="program-price-box">
+                        <div class="price-label">ESTIMASI INVESTASI</div>
+                        <div class="price-amount">Rp3.500.000 <span>/ peserta</span></div>
+                        <div class="price-note">Min. 25 peserta. Group bundle mulai Rp80.000.000</div>
+                        <div class="bonus-note">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                            Bonus: Free platform acc + IMAJIK Academy
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/6285187287500?text=Halo%2C%20saya%20ingin%20diskusi%20Program%20AI%20Visual%20Transformation" class="btn-cta" onclick="fbq('track', 'Lead');">Diskusikan Program Transformation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POST TRAINING (DARI REFERENSI) -->
+    <section class="post-training">
+        <div class="container">
+            <h2>Setelah Training, <span>Proses Adaptasi Tetap Berjalan</span></h2>
+            <p>IMAJIK Academy adalah portal pembelajaran eksklusif pasca-training untuk menjaga momentum adopsi AI, memberikan support teknis, dan memastikan tim Anda tetap mengikuti perkembangan tools terbaru.</p>
+            
+            <div class="post-list">
+                <div class="post-item">
+                    <div class="post-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <div class="post-text">
+                        <h4>Training Material & E-Course</h4>
+                        <p>Akses ulang materi training dan materi lanjutan Generative AI kapan saja.</p>
+                    </div>
+                </div>
+                <div class="post-item">
+                    <div class="post-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <div class="post-text">
+                        <h4>Guides, Tutorials & News</h4>
+                        <p>Panduan workflow siap pakai dan update perkembangan platform AI global.</p>
+                    </div>
+                </div>
+                <div class="post-item">
+                    <div class="post-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <div class="post-text">
+                        <h4>Free Consultation Support</h4>
+                        <p>Tempat bertanya saat tim mengalami hambatan implementasi di pekerjaan harian.</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://wa.me/6285187287500?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20program%20IMAJIK%20Academy" class="btn-cta" onclick="fbq('track', 'Lead');">Tanyakan Program IMAJIK Academy</a>
+        </div>
+    </section>
+
+    <!-- DESIRE: TESTIMONIALS SECTION (UBAH KE VIDEO) -->
+    <section class="testimonials bg-light">
+        <div class="container">
+            <h2 class="section-title">Apa Kata Mereka?</h2>
+            <p class="section-subtitle">Telah dipercaya oleh berbagai perusahaan top nasional untuk men-training tim marketing dan kreatif mereka.</p>
+            
+            <div class="testi-grid">
+                <!-- Slot Video 1 (Dummy YouTube embed for preview) -->
+                <div class="testi-video-card">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <!-- Slot Video 2 (Dummy YouTube embed for preview) -->
+                <div class="testi-video-card">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <!-- Slot Video 3 (Dummy YouTube embed for preview) -->
+                <div class="testi-video-card">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTION: FINAL CTA SECTION -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Siap Mengakselerasi Produktivitas Tim Anda?</h2>
+            <p>Jadwal workshop In-House kami sangat terbatas setiap bulannya. Booking slot perusahaan Anda sekarang.</p>
+            <a href="https://wa.me/6285187287500?text=Halo%2C%20saya%20tertarik%20program%20AI%20Training%20IMAJIK" class="btn-cta" onclick="fbq('track', 'Lead');">Hubungi Tim Kami di WhatsApp Sekarang</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Instagram</a> |
+                <a href="#">LinkedIn</a> |
+                <a href="#">Website</a>
+            </div>
+            <p class="copyright">&copy; 2026 Imajik For Business. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT UNTUK AUTO-SLIDER HERO -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.hero-slide');
+            let currentSlide = 0;
+            
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 3500); // Ganti gambar otomatis setiap 3.5 detik
+        });
+    </script>
+</body>
+</html>
